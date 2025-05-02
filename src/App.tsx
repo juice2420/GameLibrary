@@ -44,6 +44,7 @@ export default function App() {
           <img src={user.user_metadata.avatar_url} alt="avatar" width={50} />
           <p>{user.user_metadata.full_name}</p>
           <button onClick={logout}>ログアウト</button>
+          <p>aa</p>
           <ProfileList />
         </>
       ) : (
