@@ -5,6 +5,9 @@ import type { User } from '@supabase/supabase-js'
 import { fetchProfiles }from "./components/fetchProfiles" 
 import  ProfileList  from "./components/weekly_chart.tsx";
 import {PageHeader} from "./components/PageHeader.tsx"
+import {Content} from "./components/Content.tsx";
+
+
 
 export default function App() {
   const [user, setUser] = useState<User | null>(null)
@@ -22,35 +25,31 @@ export default function App() {
 
     return () => listener.subscription.unsubscribe()
   }, [])
-
-  const loginWithDiscord = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: 'discord',
-    })
-  }
-
-  const logout = async () => {
-    await supabase.auth.signOut()
-  }
   
 
-
+//        <p>{user.user_metadata.full_name}</p>
 
   return (
     <div>
       {user ? (
         <>
-        <PageHeader />
-          <img src={user.user_metadata.avatar_url} alt="avatar" width={50} />
-          <p>{user.user_metadata.full_name}</p>
-          <button onClick={logout}>ログアウト</button>
-          <p>aa</p>
+        <PageHeader imageUrl = {user.user_metadata.avatar_url}/>
           <ProfileList />
         </>
       ) : (
-        <button onClick={loginWithDiscord}>Discordでログイン</button>
-        
+        <Content />
       )}
     </div>
   )
+}
+
+export const loginWithDiscord = async () => {
+  await supabase.auth.signInWithOAuth({
+    provider: 'discord',
+  })
+}
+
+
+export const logout = async () => {
+  await supabase.auth.signOut()
 }
