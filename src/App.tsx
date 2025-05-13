@@ -6,6 +6,9 @@ import { fetchProfiles }from "./components/fetchProfiles"
 import  ProfileList  from "./components/weekly_chart.tsx";
 import {PageHeader} from "./components/PageHeader.tsx"
 import {Content} from "./components/Content.tsx";
+import { WeeklyPie } from './components/weekly_pie.tsx';
+import {AllPie} from './components/AllPie.tsx';
+import {LanguagePie} from './components/language.tsx';
 
 
 
@@ -34,7 +37,21 @@ export default function App() {
       {user ? (
         <>
         <PageHeader imageUrl = {user.user_metadata.avatar_url}/>
-          <ProfileList />
+        <div className='flex w-full h-[400px]'>
+            <div className='w-1/2 -p-4'>
+                <ProfileList />
+            </div>
+           <div className='w-1/2 -p-4'>
+              <WeeklyPie />
+          </div>
+          <div className='w-1/2 -p-4'>
+              <AllPie />
+          </div>
+            <div className='w-1/2 -p-4'>
+              <LanguagePie />
+          </div>
+        </div>
+
         </>
       ) : (
         <Content />
