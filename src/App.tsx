@@ -9,6 +9,7 @@ import {Content} from "./components/Content.tsx";
 import { WeeklyPie } from './components/weekly_pie.tsx';
 import {AllPie} from './components/AllPie.tsx';
 import {LanguagePie} from './components/language.tsx';
+import { Weekly_Trend } from './components/weekly_trend.tsx'
 
 
 
@@ -51,7 +52,8 @@ export default function App() {
               <LanguagePie />
           </div>
         </div>
-
+        <Weekly_Trend />
+_
         </>
       ) : (
         <Content />
