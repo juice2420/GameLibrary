@@ -54,7 +54,7 @@ export const LanguagePie = () => {
         'rgba(75, 192, 192, 0.5)',
         'rgba(153, 102, 255, 0.5)',
         'rgba(255, 159, 64, 0.5)',
-        'rgba(199, 199, 199, 0.5)'
+        'rgba(199, 199, 199, 0.5)',
       ];
 
       setChartData({

@@ -9,27 +9,35 @@ import {Content} from "./components/Content.tsx";
 import { WeeklyPie } from './components/weekly_pie.tsx';
 import {AllPie} from './components/AllPie.tsx';
 import {LanguagePie} from './components/language.tsx';
-import { Weekly_Trend } from './components/weekly_trend.tsx'
 
 
 
 export default function App() {
-  const [user, setUser] = useState<User | null>(null)
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+
   fetchProfiles();
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
       setUser(user)
+      setLoading(false);
     })
 
     // リアルタイムなセッション変更を監視
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null)
+      setLoading(false);
     })
 
     return () => listener.subscription.unsubscribe()
   }, [])
+
   
+    if (loading) {
+    // 認証チェック中はローディング表示
+    return <div className="flex justify-center items-center h-screen">読み込み中...</div>;
+  }
 
 //        <p>{user.user_metadata.full_name}</p>
 
@@ -52,7 +60,6 @@ export default function App() {
               <LanguagePie />
           </div>
         </div>
-        <Weekly_Trend />
 _
         </>
       ) : (

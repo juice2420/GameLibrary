@@ -33,16 +33,17 @@ export const Weekly_Trend = () => {
 
   if (!topTitles) return <p>読み込み中...</p>;
 
-  return (
-    <div>
-      <h2>過去1週間のプレイ時間トップ3</h2>
-      <ol className="list-decimal ml-5">
-        {topTitles.map((item, index) => (
-          <li key={index}>
-            {item.title}：{item.time} 分
-          </li>
-        ))}
-      </ol>
-    </div>
-  );
+return (
+  <div className="max-w-md mx-auto mt-8 p-6 bg-white shadow-lg rounded-2xl border border-gray-200">
+    <h2 className="text-xl font-bold mb-4 text-center text-blue-600">過去1週間のみんなのトレンド</h2>
+    <ol className="list-decimal ml-5 space-y-2 text-gray-800">
+      {topTitles.map((item, index) => (
+        <li key={index} className="bg-blue-50 p-3 rounded-lg shadow-sm flex justify-between items-center">
+          <span className="font-semibold">{index + 1}位：{item.title}</span>
+          <span className="text-sm text-gray-600">{item.time} 分</span>
+        </li>
+      ))}
+    </ol>
+  </div>
+);
 };
