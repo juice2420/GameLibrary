@@ -68,6 +68,13 @@ export const LanguagePie = () => {
   }, []);
 
   if (!chartData) return <p>読み込み中...</p>;
+  if (chartData.languageLabels.length === 0) {
+  return (
+    <div className="h-full flex items-center justify-center">
+      <p className="text-gray-500">記録されたプレイデータがありません。</p>
+    </div>
+  );
+}
 
   return (
     <div className="h-full flex flex-col">

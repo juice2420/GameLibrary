@@ -46,20 +46,21 @@ export default function App() {
       {user ? (
         <>
         <PageHeader imageUrl = {user.user_metadata.avatar_url}/>
-        <div className='flex w-full h-[400px]'>
-            <div className='w-1/2 -p-4'>
-                <ProfileList />
-            </div>
-           <div className='w-1/2 -p-4'>
-              <WeeklyPie />
-          </div>
-          <div className='w-1/2 -p-4'>
-              <AllPie />
-          </div>
-            <div className='w-1/2 -p-4'>
-              <LanguagePie />
-          </div>
-        </div>
+
+<div className="grid grid-cols-2 gap-4">
+  <div className="h-[500px] p-4 bg-white shadow rounded">
+    <ProfileList />
+  </div>
+  <div className="h-[500px] p-4 bg-white shadow rounded">
+    <WeeklyPie />
+  </div>
+  <div className="h-[500px] p-4 bg-white shadow rounded">
+    <AllPie />
+  </div>
+  <div className="h-[500px] p-4 bg-white shadow rounded">
+    <LanguagePie />
+  </div>
+</div>
 _
         </>
       ) : (
