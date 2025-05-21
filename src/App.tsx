@@ -60,6 +60,7 @@ export default function App() {
   <div className="h-[500px] p-4 bg-white shadow rounded">
     <LanguagePie />
   </div>
+
 </div>
 _
         </>

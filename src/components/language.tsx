@@ -14,7 +14,7 @@ const getLanguageFromFileName = (fileName: string): string => {
   // 拡張子から言語を判定する
   const ext = fileName.split('.').pop()?.toLowerCase();
   switch (ext) {
-    case 'mjs': return 'JavaScript';
+    case 'mjs': case 'js' :return 'JavaScript';
     case 'ts': return 'TypeScript';
     case 'py': return 'Python';
     case 'java': return 'Java';
@@ -35,9 +35,9 @@ export const LanguagePie = () => {
       const languagePlayTime: { [language: string]: number } = {};  // 言語ごとの集計
 
       profiles.forEach(profile => {
+        if (profile.title !== "Visual Studio Code") return;
         const languageStr = profile.language || "";  // `language`カラムからファイル名を取得
-        const fileName = languageStr.split(' ')[1];  // 例: "Editing main.js" から "main.js" を取得
-        const language = getLanguageFromFileName(fileName);  // 拡張子から言語を判定
+        const language = getLanguageFromFileName(languageStr);  // 拡張子から言語を判定
         const time = profile.time || 0;
 
         // 言語ごとの集計
