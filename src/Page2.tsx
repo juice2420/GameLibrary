@@ -47,6 +47,14 @@ export const Page2 = () =>{
           <p className="mt-2 text-gray-600">
             Botをdiscordのサーバーに招待し、Botがユーザーのアクティビティを取得することでぽプレイ時間を確認することができるようになります！<br/>
             Botのリンクはこちら：
+            <a
+            href="https://discord.com/oauth2/authorize?client_id=1361532077732008139&permissions=2147485696&redirect_uri=https%3A%2F%2Fvaztyxvyvhrhwcdabsnh.supabase.co%2Fauth%2Fv1%2Fcallback&integration_type=0&scope=bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline ml-1"
+          >
+            招待リンク
+          </a>
           </p>
         </div>
 
