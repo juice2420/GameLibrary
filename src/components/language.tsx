@@ -22,6 +22,9 @@ const getLanguageFromFileName = (fileName: string): string => {
     case 'go': return 'Go';
     case 'html': return 'HTML';
     case 'css': return 'CSS';
+    case 'c': return 'C';
+    case 'cpp': return 'C+';
+    case 'cs' : return 'C#';
     default: return 'その他';
   }
 };
@@ -48,8 +51,8 @@ export const LanguagePie = () => {
       const languageData = Object.values(languagePlayTime);
 
       const backgroundColors: string[] = [  // 型を明示的に指定
-        'rgba(255, 99, 132, 0.5)',
-        'rgba(54, 162, 235, 0.5)',
+        'rgba(241, 224, 90, 0.5)',
+        'rgba(43, 116, 137, 0.5)',
         'rgba(255, 206, 86, 0.5)',
         'rgba(75, 192, 192, 0.5)',
         'rgba(153, 102, 255, 0.5)',
