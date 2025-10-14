@@ -1,54 +1,58 @@
-# React + TypeScript + Vite
+# GameLibrary
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GameLibraryは、Discordのアクティビティからゲームのプレイ履歴を取得し、可視化するWebサービスです。  
+自分や他のユーザーのゲームプレイ時間やトレンドをグラフで確認できます。
 
-Currently, two official plugins are available:
+↓こちらでGameLibraryにアクセスできます。<br>
+https://game-library-alpha-rosy.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 主な機能
 
-## Expanding the ESLint configuration
+- Discordアカウントでログイン
+- ゲームごとのプレイ時間をグラフで表示（全期間・直近1週間）
+- みんなのトレンド（直近1週間の人気タイトルランキング）
+- 使用言語ごとのプレイ時間集計（VSCode拡張機能連携時）
+- Discord Botをサーバーに招待してプレイ履歴を自動取得
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 技術スタック
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- フロントエンド: React + TypeScript + Vite
+- UI: Tailwind CSS
+- グラフ描画: Chart.js, react-chartjs-2
+- バックエンド: Supabase (認証・データベース)
+- 日付処理: date-fns
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## セットアップ方法
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. リポジトリをクローン
+2. 必要なパッケージをインストール
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+   ```sh
+   npm install
+   ```
+
+3. Supabaseのプロジェクトを作成し、`.env`またはViteの環境変数に  
+   `VITE_SUPABASE_URL` と `VITE_SUPABASE_ANON_KEY` を設定
+
+4. 開発サーバーを起動
+
+   ```sh
+   npm run dev
+   ```
+
+5. ブラウザで `http://localhost:5173` にアクセス
+
+## 使い方
+
+1. トップページで「ログインはこちら」ボタンからDiscord認証
+2. BotをDiscordサーバーに招待し、コマンドで設定
+3. プレイ履歴やトレンド、グラフをWebアプリで確認
+
+## ディレクトリ構成
+
+- `src/` ... ソースコード
+  - `components/` ... 各種コンポーネント
+  - `App.tsx` ... メイン画面
+  - `Page1.tsx`, `Page2.tsx` ... サブページ
+- `public/` ... 公開用静的ファイル
+
