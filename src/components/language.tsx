@@ -22,6 +22,9 @@ const getLanguageFromFileName = (fileName: string): string => {
     case 'go': return 'Go';
     case 'html': return 'HTML';
     case 'css': return 'CSS';
+    case 'c': return 'C';
+    case 'cpp': return 'C+';
+    case 'cs' : return 'C#';
     default: return 'その他';
   }
 };
@@ -48,13 +51,19 @@ export const LanguagePie = () => {
       const languageData = Object.values(languagePlayTime);
 
       const backgroundColors: string[] = [  // 型を明示的に指定
-        'rgba(255, 99, 132, 0.5)',
-        'rgba(54, 162, 235, 0.5)',
-        'rgba(255, 206, 86, 0.5)',
-        'rgba(75, 192, 192, 0.5)',
-        'rgba(153, 102, 255, 0.5)',
-        'rgba(255, 159, 64, 0.5)',
-        'rgba(199, 199, 199, 0.5)',
+        'rgba(241, 224, 90, 0.5)',
+        'rgba(43, 116, 137, 0.5)',
+        'rgba(53, 114, 165, 0.5)',
+        'rgba(176, 114, 25, 0.5)',
+        'rgba(112, 21, 22, 0.5)',
+        'rgba(220, 68, 171, 0.5)',
+        'rgba(228, 75, 35, 0.5)',
+        'rgba(86, 61, 124, 0.5)',
+        'rgba(85, 85, 85, 0.5)',
+        'rgba(243, 75, 125, 0.5)',
+        'rgba(23, 134, 53, 0.5)',
+        'rgba(23, 134, 53, 0.5)',
+        'rgba(128, 128, 128, 0.5)',
       ];
 
       setChartData({
