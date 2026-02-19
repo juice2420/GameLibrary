@@ -6,9 +6,9 @@ import { useState } from "react";
 export const Weekly_Trend = () => {
   // 適当なダミーデータをベタ書きで設定
   const [topTitles] = useState<{ title: string, time: number }[] | null>([
-    { title: "Minecraft", time: 1200 },
-    { title: "Apex Legends", time: 850 },
-    { title: "Valorant", time: 600 }
+    { title: "Visual Studio Code", time: 1207 },
+    { title: "Apex Legends", time: 851 },
+    { title: "Valorant", time: 643 }
   ]);
 
   /* 一旦fetchロジックをすべて無効化
