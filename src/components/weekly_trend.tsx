@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export const Weekly_Trend = () => {
   // 適当なダミーデータをベタ書きで設定
-  const [topTitles, setTopTitles] = useState<{ title: string, time: number }[] | null>([
+  const [topTitles] = useState<{ title: string, time: number }[] | null>([
     { title: "Minecraft", time: 1200 },
     { title: "Apex Legends", time: 850 },
     { title: "Valorant", time: 600 }
