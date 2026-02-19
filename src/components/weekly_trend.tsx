@@ -13,10 +13,10 @@ export const Weekly_Trend = () => {
 
       profiles.forEach(profile => {
         const createdAt = new Date(profile.created_at);
-        if (createdAt >= oneWeekAgo) {
+        //if (createdAt >= oneWeekAgo) {
           const title = profile.title || "未分類";
           titlePlayTime[title] = (titlePlayTime[title] || 0) + profile.time;
-        }
+        //}
       });
 
       // オブジェクトを配列に変換してソート
